@@ -10,13 +10,13 @@ module.exports = {
         signup: async(req, res) =>{
             const errors = validationResult(req)
             if(!errors.isEmpty()){//se errors  não está vazio 
-                res.json({error: errors.mapped()})
+                res.json({error: errors.mapped()})//mostrar erros
                 return
-            }
+            }//caso não tenha error
                const user = await User.findOne({//verificar se email existe
                        email: data.email
                }) 
-               if (user) {
+               if (user) {//se user true
                        res.json({
                                error:{email:{msg:'email já existe'}}
                        })
@@ -24,7 +24,7 @@ module.exports = {
 
                //verificando se o estado existe
                if(mongoose.Types.ObjectId.isValid(data.state)){ //verificando se o stateitemid existe
-               const stateItem = await State.findById(data.state)
+               const stateItem = await State.findById(data.state)//guardando de stado pelo Id em stateItem
                if(!stateItem){// se não tem state item
                 res.json({
                        error:{name:{msg:"estado não existe"}}  
@@ -41,9 +41,9 @@ module.exports = {
                 const passwordHash  = await bcrypt.hash(data.password, 10)//crypto na senha do usuário
 
                 const payload = (Date.now()+ Math.random()).toString()//gerando número aleatório e transformando para string passando para o paayload para transformar em token
-                const token =  await bcrypt.hash(payload, 10)
+                const token =  await bcrypt.hash(payload, 10)//encrypt no payload e guardando o token
 
-                const newUser = new User({
+                const newUser = new User({//instanciando o model com os valores passado
                         name:data.name,
                         email: data.email,
                         passwordHash,
@@ -52,8 +52,8 @@ module.exports = {
 
                 })
 
-                await newUser.save();
-                res.json({token});
+                await newUser.save();//salvando os valores passado no database
+                res.json({token});//retornando um token em json
 
 
               
