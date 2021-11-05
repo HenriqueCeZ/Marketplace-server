@@ -10,10 +10,7 @@ Install API with npm
 
 ```bash
   npm install
-
-  MongoDB structure in db_structure.txt
-
-  npm run dev
+  npm run start dev
 ```
     
 ## API Reference
