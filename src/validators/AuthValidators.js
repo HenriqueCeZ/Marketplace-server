@@ -29,6 +29,25 @@ module.exports = {
               errorMessage: 'Estado não preenchido'  
 
         }
+    }),
+
+
+    signin: checkSchema({
+
+        email:{
+            isEmail:true,
+            normalizeEmail: true, //tira espaço e deixa tudo minúsculo pra inserir no banco
+            errorMessage: 'E-mail inválido'
+        },
+        password: {
+            notEmpty: true,
+            isLength:{
+                min:3
+            },
+            errorMessage: 'Senha precisa de pelo menos  2 caracteres'
+        },  
+
+
     })
 
 }
