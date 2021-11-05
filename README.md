@@ -10,7 +10,7 @@ Install API with npm
 
 ```bash
   npm install
-  npm run start dev
+  npm run startdev
 ```
     
 ## API Reference
