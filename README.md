@@ -1,4 +1,4 @@
-# e-commerce-server
+# Marketplace-server
 
 It was developed during the NodeJS course at B7WEB.com.br
 
