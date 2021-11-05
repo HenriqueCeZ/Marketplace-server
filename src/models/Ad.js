@@ -15,7 +15,7 @@ const modelSchema = new mongoose.Schema({
     status: String,
 })
 
-const modelName = 'Category'
+const modelName = 'Ad'
 
 if(mongoose.connection && mongoose.connection.models[modelName]){
         module.exports = connection.models[modelName]
